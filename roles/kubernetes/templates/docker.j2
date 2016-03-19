@@ -1,4 +1,4 @@
-OPTIONS='--selinux-enabled --storage-driver=devicemapper --storage-opt dm.datadev=/dev/vg-docker/data --storage-opt dm.metadatadev=/dev/vg-docker/metadata'
+OPTIONS='--selinux-enabled --storage-driver=devicemapper --storage-opt dm.datadev=/dev/vg-docker/data --storage-opt dm.metadatadev=/dev/vg-docker/metadata  --storage-opt dm.basesize=100G'
 DOCKER_CERT_PATH=/etc/docker
 
 {% if enable_http_proxy %}
