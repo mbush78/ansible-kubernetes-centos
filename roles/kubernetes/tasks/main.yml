@@ -1,4 +1,16 @@
 ---
+- name: create filesystem
+  script: ./scripts/disks.sh /dev/sdc1
+  
+- name create docker vg
+  lvg: vg=vg-docker pvs=/dev/sdc1
+
+- name: create vol data
+  lvol: vg=vg-docker lv=data size=100g
+
+- name: create vol metadata
+  lvol: vg=vg-docker lv=metadata size=4g  
+  
 - name: Install kubernetes
   yum: name=kubernetes state=latest
 
