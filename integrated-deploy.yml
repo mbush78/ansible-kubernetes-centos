@@ -1,4 +1,14 @@
 ---
+- hosts: masters
+  sudo: yes
+  roles:
+    - device-mapper
+
+- hosts: minions
+  sudo: yes
+  roles:
+    - device-mapper
+
 - hosts: all
   sudo: yes
   roles:
