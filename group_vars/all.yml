@@ -23,3 +23,6 @@ http_proxy: http://proxy.example.net:8080/
 # dns
 dns_server: 10.254.0.3
 dns_domain: kubernetes.local
+
+vg_name: "vg-docker"
+pvs_devs: "/dev/sdc"

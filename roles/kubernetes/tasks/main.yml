@@ -4,3 +4,19 @@
 
 - name: Docker config
   template: src=docker.j2 dest=/etc/sysconfig/docker
+
+- name: docker-storage-setup
+  template: src=docker-storage-setup.j2 dest=/etc/sysconfig/docker-storage-setup
+
+- name: Stop docker-storage-setup
+  service: name=docker-storage-setup state=stopped
+
+- name: Stop docker
+  service: name=docker state=stopped
+
+- name: remove /var/lib/docker
+  file: path=/var/lib/docker state=absent 
+
+- name: Start docker-storage-setup
+  service: name=docker-storage-setup state=started
+
